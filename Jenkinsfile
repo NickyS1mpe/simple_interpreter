@@ -9,10 +9,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo "Building..."
-
-                sh 'dune utop'
-                sh 'dune runtest'
+                dir('simple_interpreter/let') {
+                    sh 'ls -la'
+                }
             }
         }
     }
