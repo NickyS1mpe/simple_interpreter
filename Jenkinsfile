@@ -10,7 +10,7 @@ pipeline {
         stage('Build') {
             steps {
                 dir('let') {
-                    sh 'ls -la'
+                    sh 'dune ut'
                 }
             }
         }
