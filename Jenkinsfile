@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                dir('simple_interpreter/let') {
+                dir('let') {
                     sh 'ls -la'
                 }
             }
