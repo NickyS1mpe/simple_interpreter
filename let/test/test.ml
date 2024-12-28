@@ -16,5 +16,5 @@ in let y = 2
       in (x-8)- y"));
 ]
 
-let _ = run_test_tt_main ~verbose:true ("suite" >::: tests)
+let _ = run_test_tt_main ("suite" >::: tests)
 
