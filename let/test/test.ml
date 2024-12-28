@@ -17,5 +17,4 @@ in let y = 2
 ]
 
 let () =
-  let _ = run_test_tt_main ~exit:false ("suite" >::: tests) in
-  ()
+  run_test_tt_main ("suite" >::: tests)
