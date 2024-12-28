@@ -11,6 +11,7 @@ pipeline {
             steps {
                 dir('let') {
                     sh 'dune ut'
+                    sh 'dune runtest'
                 }
             }
         }
