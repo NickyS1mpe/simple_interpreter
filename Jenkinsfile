@@ -44,7 +44,9 @@ pipeline {
         always {
             echo currentBuild.currentResult
         }
-        
+        success {
+            echo "Pipeline succeeded. Check the logs for details."
+        }
         failure {
             echo "Pipeline failed. Check the logs for details."
         }
