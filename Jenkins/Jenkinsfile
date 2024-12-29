@@ -43,8 +43,10 @@ pipeline {
 
         stage('Clean Up') {
             steps {
-                echo 'Cleaning up...'
-                sh 'dune clean'
+                dir('let') {
+                    echo 'Cleaning up...'
+                    sh 'dune clean'
+                }
             }
         }
     }
