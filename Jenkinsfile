@@ -32,9 +32,11 @@ pipeline {
                 }
             }
 
-            success {
-                script {
-                    currentBuild.result = 'SUCCESS'
+            post{
+                success {
+                    script {
+                        currentBuild.result = 'SUCCESS'
+                    }
                 }
             }
         }
