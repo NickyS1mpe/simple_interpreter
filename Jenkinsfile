@@ -11,7 +11,7 @@ pipeline {
         stage('Start') {
             steps {
                 echo 'Starting pipeline...'
-                echo 'Build number is ${CurrentBuild.number}'
+                echo "Build number is ${currentBuild.number}"
             }
         }
 
@@ -44,7 +44,7 @@ pipeline {
 
     post {
         always {
-            echo currentBuild.currentResult
+            echo "Build result is ${currentBuild.currentResult}"
         }
         success {
             echo "Pipeline succeeded. Check the logs for details."
