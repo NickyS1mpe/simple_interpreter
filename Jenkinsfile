@@ -7,6 +7,14 @@ pipeline {
     }
 
     stages {
+
+        stage('Start') {
+            steps {
+                echo 'Starting pipeline...'
+                echo 'Build number is ${CurrentBuild.number}'
+            }
+        }
+
         stage('Build Project') {
             steps {
                 dir('let') {
@@ -23,16 +31,20 @@ pipeline {
                     sh 'dune runtest'
                 }
             }
+
+            success {
+                script {
+                    currentBuild.result = 'SUCCESS'
+                }
+            }
         }
     }
 
     post {
         always {
-            echo "Pipeline finished"
+            echo currentBuild.currentResult
         }
-        success {
-            echo "Pipeline executed successfully!"
-        }
+        
         failure {
             echo "Pipeline failed. Check the logs for details."
         }
