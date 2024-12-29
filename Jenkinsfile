@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     environment {
         OCAML_VERSION = "4.14.0"
         OPAM_VERSION = "2.0.0"
@@ -32,12 +32,19 @@ pipeline {
                 }
             }
 
-            post{
+            post {
                 success {
                     script {
                         currentBuild.result = 'SUCCESS'
                     }
                 }
+            }
+        }
+
+        stage('Clean Up') {
+            steps {
+                echo 'Cleaning up...'
+                sh 'dune clean'
             }
         }
     }
