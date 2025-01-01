@@ -2,12 +2,17 @@ pipeline {
     agent any
 
     environment {
-        OCAML_VERSION = "4.14.0"
-        OPAM_VERSION = "2.0.0"
+        OCAML_VERSION = '5.2.0'
+        OPAM_VERSION = '2.2.1'
     }
 
     stages {
-
+        stage('Checkout') {
+            steps {
+                echo 'Checking out code...'
+                checkout scm
+            }
+        }
         stage('Start') {
             steps {
                 echo 'Starting pipeline...'
@@ -56,10 +61,10 @@ pipeline {
             echo "Build result is ${currentBuild.currentResult}"
         }
         success {
-            echo "Pipeline succeeded. Check the logs for details."
+            echo 'Pipeline succeeded. Check the logs for details.'
         }
         failure {
-            echo "Pipeline failed. Check the logs for details."
+            echo 'Pipeline failed. Check the logs for details.'
         }
     }
 }
